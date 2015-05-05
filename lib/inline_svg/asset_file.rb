@@ -6,7 +6,7 @@ module InlineSvg
     def self.named(filename)
       asset_path = FindsAssetPaths.by_filename(filename) rescue nil
       asset_path = FindsPublicPaths.by_filename(filename) if asset_path.nil? rescue nil
-      asset_path = filename
+      abort(filename.to_s)
       File.read(asset_path || UNREADABLE_PATH)
     end
   end
